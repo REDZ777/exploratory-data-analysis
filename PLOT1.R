@@ -1,5 +1,5 @@
 library("data.table")
-setwd("~/Desktop/Exploratory data analysis")
+setwd("~/Desktop/Exploratory data analysis/data")
 powerDT <- data.table::fread(input = "household_power_consumption.txt" , na.strings="?" ) #reads data
 powerDT[, Global_active_power := lapply(.SD, as.numeric), .SDcols = c("Global_active_power")]
 powerDT[, Date := lapply(.SD, as.Date, "%d/%m/%Y"), .SDcols = c("Date")] #filters
